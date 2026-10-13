@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PicoSoft-Exsel 2026 — hoja de cálculo nativa en Rust</title>
+<meta name="description" content="PicoSoft-Exsel: hoja de cálculo nativa, abierta y rápida, escrita en Rust. Descarga los instaladores .deb, .rpm, .AppImage y flatpak para Linux.">
+<meta name="theme-color" content="#101828">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PicoSoft-Exsel">
+<meta property="og:url" content="https://agdala10.github.io/PicoSoft-Exsel/">
+<meta property="og:title" content="PicoSoft-Exsel 2026">
+<meta property="og:description" content="Hoja de cálculo nativa, abierta y rápida, escrita en Rust. Instaladores para Linux.">
+<meta property="og:image" content="https://agdala10.github.io/PicoSoft-Exsel/screenshots/hero-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="./">
+      <img src="favicon.svg" alt="" width="28" height="28">
+      <span>PicoSoft-<b>Exsel</b></span>
+      <span class="ver">2026</span>
+    </a>
+    <nav class="nav">
+      <a href="#descargar">Descargar</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#instalar">Instalar</a>
+      <a href="https://github.com/agdala10/PicoSoft-Exsel" rel="noopener">Código</a>
+      <a class="btn sm" href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">v0.5.0</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="kicker">Código abierto · MIT OR Apache-2.0 · x86_64 Linux</p>
+      <h1>Tu hoja de cálculo,<br><span class="grad">nativa y sin nube</span></h1>
+      <p class="lead">PicoSoft-Exsel es una hoja de cálculo escrita en Rust: arranca en un instante,
+        abre <code>.xlsx</code> sin convertirlos y funciona entera en tu equipo. Sin cuentas, sin
+        telemetría, sin suscripción.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.deb">Descargar .deb</a>
+        <a class="btn ghost" href="#descargar">Todos los instaladores</a>
+      </div>
+      <p class="meta">Versión 0.5.0 · Debian, Ubuntu, Fedora, openSUSE, Arch y derivatives ·
+        <a href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">release en GitHub</a></p>
+    </div>
+    <figure class="shot">
+      <img src="screenshots/hero-light.png"
+           alt="PicoSoft-Exsel mostrando un panel de ventas trimestral con tabla, gráfico de barras y gráfico circular"
+           width="2880" height="1800" loading="eager">
+      <figcaption>Captura real de PicoSoft-Exsel 0.5.0 · libro de ejemplo «Sales»</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="descargar" class="section">
+  <div class="wrap">
+    <h2>Descarga</h2>
+    <p class="sub">Cuatro paquetes, el mismo programa. Elige el de tu distribución.</p>
+    <div class="cards">
+      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.deb">
+        <h3>.deb</h3>
+        <p class="who">Debian · Ubuntu · Linux Mint · elementary</p>
+        <code>sudo apt install ./picosoft-exsel-0.5.0-linux-x86_64.deb</code>
+        <span class="size">23,1 MB</span>
+      </a>
+      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.rpm">
+        <h3>.rpm</h3>
+        <p class="who">Fedora · RHEL · openSUSE · Mageia</p>
+        <code>sudo rpm -i picosoft-exsel-0.5.0-linux-x86_64.rpm</code>
+        <span class="size">24,1 MB</span>
+      </a>
+      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.AppImage">
+        <h3>.AppImage</h3>
+        <p class="who">Cualquier distro · sin instalación</p>
+        <code>chmod +x *.AppImage &amp;&amp; ./picosoft-exsel-0.5.0-linux-x86_64.AppImage</code>
+        <span class="size">20,7 MB</span>
+      </a>
+      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.flatpak">
+        <h3>.flatpak</h3>
+        <p class="who">Flatpak · aislamiento por sandbox</p>
+        <code>flatpak install --user ./picosoft-exsel-0.5.0-linux-x86_64.flatpak</code>
+        <span class="size">15,4 MB</span>
+      </a>
+    </div>
+    <p class="note">Requisitos: glibc ≥ 2.35 (Ubuntu 22.04 o superior) · ID de aplicación
+      <code>ai.picosoft.exsel</code> · paquetes firmados con hash SHA-256 publicados en el release.</p>
+  </div>
+</section>
+
+<section id="caracteristicas" class="section alt">
+  <div class="wrap">
+    <h2>Qué hace</h2>
+    <p class="sub">Hojas de cálculo serias, sin pedirte permiso para nada.</p>
+    <div class="feat">
+      <div><h3>513 funciones</h3><p>Matemáticas, de texto, de fecha, lógicas, financieras y de
+        búsqueda. 504 ya funcionan igual que en la hoja de cálculo de referencia.</p></div>
+      <div><h3>Gráficos de verdad</h3><p>Barras, líneas, dispersión, circular, combinados y paneles
+        de control, con formato, series y ejes editables.</p></div>
+      <div><h3>XLSX nativo</h3><p>El formato abierto es su formato. Abre lo que te mandan y guárdalo
+        sin perder fórmulas, estilos ni gráficos. También .ods y .csv.</p></div>
+      <div><h3>Todo es un comando</h3><p>274 comandos con atajos: desde la cinta, la terminal
+        (<code>picosoft-exsel-cli</code>), el canal de control o MCP. Tus agentes pueden
+        operarla entera.</p></div>
+      <div><h3>12 idiomas</h3><p>Interfaz, funciones y formatos numéricos localizados: español,
+        inglés, chino, japonés, coreano, ruso, portugués, checo…</p></div>
+      <div><h3>Rápida y discreta</h3><p>Sin proceso de fondo, sin cuenta, sin telemetría. Arranca
+        en caliente y se queda donde la dejaste.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="instalar" class="section">
+  <div class="wrap narrow">
+    <h2>Instalación y verificación</h2>
+    <p class="sub">Comprueba el checksum antes de instalar: cada archivo tiene su hash en el release.</p>
+    <pre class="code"># 1. descargas el paquete desde la página de Releases y lo verificas
+sha256sum picosoft-exsel-0.5.0-linux-x86_64.deb
+# 3f10fe0f47b249fa56a9d29d83be0d48239b92cb091c233a51de700d98358445  picosoft-exsel-0.5.0-linux-x86_64.deb
+
+# 2. lo instalas
+sudo apt install ./picosoft-exsel-0.5.0-linux-x86_64.deb     # Debian/Ubuntu
+sudo rpm -i picosoft-exsel-0.5.0-linux-x86_64.rpm            # Fedora/openSUSE
+./picosoft-exsel-0.5.0-linux-x86_64.AppImage                 # cualquier distro
+flatpak install --user ./picosoft-exsel-0.5.0-linux-x86_64.flatpak
+
+# 3. lanzas
+picosoft-exsel --sample sales</pre>
+    <table class="sums">
+      <caption>SHA-256 de los instaladores de la versión 0.5.0</caption>
+      <tr><th>Archivo</th><th>Hash</th></tr>
+      <tr><td>…linux-x86_64.deb</td><td><code>3f10fe0f47b249fa56a9d29d83be0d48239b92cb091c233a51de700d98358445</code></td></tr>
+      <tr><td>…linux-x86_64.rpm</td><td><code>b1193ebaac743f892bef6812e840e1fd52bcef5a19d8c8a3e909fa1263dbbc94</code></td></tr>
+      <tr><td>…linux-x86_64.AppImage</td><td><code>12872ec3c926bc66d343f1d146d254d9c4b66bf38d441190fe23a2d957c3d6ee</code></td></tr>
+      <tr><td>…linux-x86_64.flatpak</td><td><code>167c543e74ee30ee17a4da0e9250918ac566f51f53a019cb58ccdfd2167eef75</code></td></tr>
+    </table>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="brand2">PicoSoft-<b>Exsel</b> 2026</p>
+      <p>Software libre bajo licencia MIT OR Apache-2.0. Los iconos, temas y libros de ejemplo de
+        este sitio son obra original de los colaboradores del proyecto.</p>
+    </div>
+    <div>
+      <p class="h">Proyecto</p>
+      <a href="https://github.com/agdala10/PicoSoft-Exsel">Repositorio</a>
+      <a href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">Release v0.5.0</a>
+      <a href="https://github.com/agdala10/PicoSoft-Exsel/issues">Incidencias</a>
+    </div>
+    <div>
+      <p class="h">Más</p>
+      <a href="https://github.com/agdala10">agdala10</a>
+      <a href="https://github.com/storytold/gridcraft">Proyecto original (upstream)</a>
+      <a href="https://github.com/agdala10/PicoSoft-Exsel#readme">Léeme</a>
+    </div>
+  </div>
+  <div class="wrap lic">PicoSoft-Exsel © los colaboradores del proyecto.</div>
+</footer>
+
+</body>
+</html>
