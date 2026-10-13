@@ -89,6 +89,21 @@ h2{margin:0 0 8px;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.8px}
 .sums th{background:var(--soft);font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .sums td:last-child{word-break:break-all}
 
+/* galería */
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.gitem{display:block;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;color:var(--ink);transition:.15s transform,.15s box-shadow}
+.gitem:hover{text-decoration:none;transform:translateY(-3px);box-shadow:0 16px 36px rgba(16,24,40,.12)}
+.gitem img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:var(--soft)}
+.gitem span{display:block;padding:11px 14px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+/* visor a tamaño completo (sin JavaScript: se controla con :target) */
+.lb{display:none}
+.lb:target{display:flex;position:fixed;inset:0;z-index:100;background:rgba(9,13,22,.94);align-items:center;justify-content:center;padding:40px 24px}
+.lb figure{margin:0;max-width:1200px;width:100%;text-align:center}
+.lb img{width:100%;height:auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb figcaption{margin-top:12px;color:#c6ccda;font-size:14px}
+.lb-close{position:fixed;top:18px;right:22px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:20px;line-height:1}
+.lb-close:hover{background:rgba(255,255,255,.24);text-decoration:none}
+
 /* pie */
 .foot{background:#101828;color:#c6ccda;padding:56px 0 30px;font-size:14.5px}
 .foot a{display:block;color:#c6ccda;padding:3px 0}
