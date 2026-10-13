@@ -1,216 +1,555 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-scroll="body">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PicoSoft-Exsel 2026 — hoja de cálculo nativa en Rust</title>
 <meta name="description" content="PicoSoft-Exsel: hoja de cálculo nativa, abierta y rápida, escrita en Rust. Descarga los instaladores .deb, .rpm, .AppImage y flatpak para Linux.">
-<meta name="theme-color" content="#101828">
+<meta name="theme-color" content="#0b1020">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PicoSoft-Exsel">
 <meta property="og:url" content="https://agdala10.github.io/PicoSoft-Exsel/">
 <meta property="og:title" content="PicoSoft-Exsel 2026">
 <meta property="og:description" content="Hoja de cálculo nativa, abierta y rápida, escrita en Rust. Instaladores para Linux.">
-<meta property="og:image" content="https://agdala10.github.io/PicoSoft-Exsel/screenshots/hero-light.png">
+<meta property="og:image" content="https://agdala10.github.io/PicoSoft-Exsel/screenshots/03-panel-ventas.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="css/site.css" rel="stylesheet">
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap bar">
-    <a class="brand" href="./">
-      <img src="favicon.svg" alt="" width="28" height="28">
-      <span>PicoSoft-<b>Exsel</b></span>
-      <span class="ver">2026</span>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg fixed-top pnav" id="pnav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+      <img src="favicon.svg" alt="" width="30" height="30" class="rounded-2">
+      <span class="brand-name">PicoSoft-<b>Exsel</b></span>
+      <span class="badge rounded-pill ms-1">2026</span>
     </a>
-    <nav class="nav">
-      <a href="#descargar">Descargar</a>
-      <a href="#galeria">Galería</a>
-      <a href="#caracteristicas">Características</a>
-      <a href="#instalar">Instalar</a>
-      <a href="https://github.com/agdala10/PicoSoft-Exsel" rel="noopener">Código</a>
-      <a class="btn sm" href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">v0.5.0</a>
-    </nav>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+            aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#descargar">Descargar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="#caracteristicas">Características</a></li>
+        <li class="nav-item"><a class="nav-link" href="#instalar">Instalar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-sm btn-glow rounded-pill px-3" href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">v0.5.0</a>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="inicio">
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+
+  <div class="container position-relative">
+    <div class="row align-items-center g-5 py-5 hero-row">
+      <div class="col-lg-6">
+        <div class="d-inline-flex align-items-center gap-2 pill reveal">
+          <span class="dot"></span> v0.5.0 · Linux x86_64 · MIT OR Apache-2.0
+        </div>
+
+        <h1 class="hero-title reveal">Tu hoja de cálculo,<br><span class="grad">nativa y sin nube</span></h1>
+
+        <p class="hero-lead reveal">Escrita en Rust: arranca en un instante, abre <code>.xlsx</code> sin
+          convertirlos y funciona entera en tu equipo. Sin cuentas, sin telemetría, sin suscripción.</p>
+
+        <div class="d-flex flex-wrap gap-3 mt-4 reveal">
+          <a class="btn btn-primary btn-lg rounded-pill px-4 shadow-lg"
+             href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.deb">
+            Descargar .deb <span class="ms-2 small">23,1 MB</span>
+          </a>
+          <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="#galeria">Ver la galería</a>
+        </div>
+
+        <ul class="hero-bullets list-unstyled mt-4 mb-0 reveal">
+          <li><span class="tick" aria-hidden="true"></span> 4 paquetes oficiales</li>
+          <li><span class="tick" aria-hidden="true"></span> Verificación SHA-256</li>
+          <li><span class="tick" aria-hidden="true"></span> Sin instalador de pago</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="window reveal">
+          <div class="window-bar">
+            <span class="wdot w1"></span><span class="wdot w2"></span><span class="wdot w3"></span>
+            <span class="window-title">Quarterly Sales Dashboard — PicoSoft-Exsel</span>
+          </div>
+          <img class="window-shot" src="screenshots/03-panel-ventas.png"
+               alt="PicoSoft-Exsel mostrando un panel de ventas con tabla, gráfico de barras y gráfico circular"
+               width="2000" height="1250" fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-fade" aria-hidden="true"></div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="kicker">Código abierto · MIT OR Apache-2.0 · x86_64 Linux</p>
-      <h1>Tu hoja de cálculo,<br><span class="grad">nativa y sin nube</span></h1>
-      <p class="lead">PicoSoft-Exsel es una hoja de cálculo escrita en Rust: arranca en un instante,
-        abre <code>.xlsx</code> sin convertirlos y funciona entera en tu equipo. Sin cuentas, sin
-        telemetría, sin suscripción.</p>
-      <div class="cta">
-        <a class="btn primary" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.deb">Descargar .deb</a>
-        <a class="btn ghost" href="#descargar">Todos los instaladores</a>
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-lg-3">
+        <div class="stat"><span class="stat-num" data-count="513">0</span><span class="stat-lbl">funciones de hoja</span></div>
       </div>
-      <p class="meta">Versión 0.5.0 · Debian, Ubuntu, Fedora, openSUSE, Arch y derivatives ·
-        <a href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">release en GitHub</a></p>
-    </div>
-    <figure class="shot">
-      <img src="screenshots/hero-light.png"
-           alt="PicoSoft-Exsel mostrando un panel de ventas trimestral con tabla, gráfico de barras y gráfico circular"
-           width="2880" height="1800" loading="eager">
-      <figcaption>Captura real de PicoSoft-Exsel 0.5.0 · libro de ejemplo «Sales»</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="descargar" class="section">
-  <div class="wrap">
-    <h2>Descarga</h2>
-    <p class="sub">Cuatro paquetes, el mismo programa. Elige el de tu distribución.</p>
-    <div class="cards">
-      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.deb">
-        <h3>.deb</h3>
-        <p class="who">Debian · Ubuntu · Linux Mint · elementary</p>
-        <code>sudo apt install ./picosoft-exsel-0.5.0-linux-x86_64.deb</code>
-        <span class="size">23,1 MB</span>
-      </a>
-      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.rpm">
-        <h3>.rpm</h3>
-        <p class="who">Fedora · RHEL · openSUSE · Mageia</p>
-        <code>sudo rpm -i picosoft-exsel-0.5.0-linux-x86_64.rpm</code>
-        <span class="size">24,1 MB</span>
-      </a>
-      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.AppImage">
-        <h3>.AppImage</h3>
-        <p class="who">Cualquier distro · sin instalación</p>
-        <code>chmod +x *.AppImage &amp;&amp; ./picosoft-exsel-0.5.0-linux-x86_64.AppImage</code>
-        <span class="size">20,7 MB</span>
-      </a>
-      <a class="card" href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.flatpak">
-        <h3>.flatpak</h3>
-        <p class="who">Flatpak · aislamiento por sandbox</p>
-        <code>flatpak install --user ./picosoft-exsel-0.5.0-linux-x86_64.flatpak</code>
-        <span class="size">15,4 MB</span>
-      </a>
-    </div>
-    <p class="note">Requisitos: glibc ≥ 2.35 (Ubuntu 22.04 o superior) · ID de aplicación
-      <code>ai.picosoft.exsel</code> · paquetes firmados con hash SHA-256 publicados en el release.</p>
-  </div>
-</section>
-
-<section id="galeria" class="section">
-  <div class="wrap">
-    <h2>Galería</h2>
-    <p class="sub">Siete capturas reales de PicoSoft-Exsel 0.5.0. Pulsa cualquier imagen para verla a tamaño completo.</p>
-    <div class="gal">
-      <a class="gitem" href="#g1">
-        <img src="screenshots/01-libro-vacio.png" alt="Libro vacío en tema claro con la cinta en español" width="2000" height="1250" loading="lazy">
-        <span>Libro nuevo · tema claro</span>
-      </a>
-      <a class="gitem" href="#g2">
-        <img src="screenshots/02-libro-vacio-oscuro.png" alt="Libro vacío en tema oscuro con la cinta en español" width="2000" height="1250" loading="lazy">
-        <span>Libro nuevo · tema oscuro</span>
-      </a>
-      <a class="gitem" href="#g3">
-        <img src="screenshots/03-panel-ventas.png" alt="Panel de ventas trimestral con tabla, gráfico de barras y gráfico circular" width="2000" height="1250" loading="lazy">
-        <span>Panel de ventas con gráficos</span>
-      </a>
-      <a class="gitem" href="#g4">
-        <img src="screenshots/04-panel-ventas-oscuro.png" alt="Panel de ventas trimestral en tema oscuro" width="2000" height="1250" loading="lazy">
-        <span>El mismo panel, tema oscuro</span>
-      </a>
-      <a class="gitem" href="#g5">
-        <img src="screenshots/05-cinta-insertar.png" alt="Pestaña Insertar de la cinta con tablas dinámicas, gráficos e imágenes" width="2000" height="1250" loading="lazy">
-        <span>Cinta «Insertar»</span>
-      </a>
-      <a class="gitem" href="#g6">
-        <img src="screenshots/06-cinta-formulas.png" alt="Pestaña Fórmulas de la cinta con categorías de funciones y evaluador" width="2000" height="1250" loading="lazy">
-        <span>Cinta «Fórmulas»</span>
-      </a>
-      <a class="gitem" href="#g7">
-        <img src="screenshots/07-diseno-tabla.png" alt="Celda de una tabla seleccionada con la pestaña contextual Diseño de tabla" width="2000" height="1250" loading="lazy">
-        <span>Pestaña contextual «Diseño de tabla»</span>
-      </a>
+      <div class="col-6 col-lg-3">
+        <div class="stat"><span class="stat-num" data-count="274">0</span><span class="stat-lbl">comandos de cinta</span></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat"><span class="stat-num" data-count="12">0</span><span class="stat-lbl">idiomas</span></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-lbl">formatos de paquete</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="lb" id="g1"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/01-libro-vacio.png" alt="Libro vacío en tema claro"><figcaption>Libro nuevo · tema claro</figcaption></figure></div>
-<div class="lb" id="g2"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/02-libro-vacio-oscuro.png" alt="Libro vacío en tema oscuro"><figcaption>Libro nuevo · tema oscuro</figcaption></figure></div>
-<div class="lb" id="g3"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/03-panel-ventas.png" alt="Panel de ventas con gráficos"><figcaption>Panel de ventas con gráficos</figcaption></figure></div>
-<div class="lb" id="g4"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/04-panel-ventas-oscuro.png" alt="Panel de ventas en tema oscuro"><figcaption>El mismo panel, tema oscuro</figcaption></figure></div>
-<div class="lb" id="g5"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/05-cinta-insertar.png" alt="Cinta Insertar"><figcaption>Cinta «Insertar»</figcaption></figure></div>
-<div class="lb" id="g6"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/06-cinta-formulas.png" alt="Cinta Fórmulas"><figcaption>Cinta «Fórmulas»</figcaption></figure></div>
-<div class="lb" id="g7"><a class="lb-close" href="#galeria" aria-label="Cerrar">✕</a><figure><img src="screenshots/07-diseno-tabla.png" alt="Diseño de tabla"><figcaption>Pestaña contextual «Diseño de tabla»</figcaption></figure></div>
+<!-- ================= DESCARGAR ================= -->
+<section class="section" id="descargar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Descarga</span>
+      <h2>Elige tu paquete</h2>
+      <p>Cuatro formas de instalar el mismo programa. Todas enlazan al release oficial v0.5.0.</p>
+    </div>
 
-<section id="caracteristicas" class="section alt">
-  <div class="wrap">
-    <h2>Qué hace</h2>
-    <p class="sub">Hojas de cálculo serias, sin pedirte permiso para nada.</p>
-    <div class="feat">
-      <div><h3>513 funciones</h3><p>Matemáticas, de texto, de fecha, lógicas, financieras y de
-        búsqueda. 504 ya funcionan igual que en la hoja de cálculo de referencia.</p></div>
-      <div><h3>Gráficos de verdad</h3><p>Barras, líneas, dispersión, circular, combinados y paneles
-        de control, con formato, series y ejes editables.</p></div>
-      <div><h3>XLSX nativo</h3><p>El formato abierto es su formato. Abre lo que te mandan y guárdalo
-        sin perder fórmulas, estilos ni gráficos. También .ods y .csv.</p></div>
-      <div><h3>Todo es un comando</h3><p>274 comandos con atajos: desde la cinta, la terminal
-        (<code>picosoft-exsel-cli</code>), el canal de control o MCP. Tus agentes pueden
-        operarla entera.</p></div>
-      <div><h3>12 idiomas</h3><p>Interfaz, funciones y formatos numéricos localizados: español,
-        inglés, chino, japonés, coreano, ruso, portugués, checo…</p></div>
-      <div><h3>Rápida y discreta</h3><p>Sin proceso de fondo, sin cuenta, sin telemetría. Arranca
-        en caliente y se queda donde la dejaste.</p></div>
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-3">
+        <div class="card pkg h-100 reveal">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start">
+              <h3 class="h5 mb-1">.deb</h3><span class="badge pkg-badge">Debian</span>
+            </div>
+            <p class="text-secondary small mb-3">Ubuntu · Linux Mint · elementary · Pop!_OS</p>
+            <div class="cmd mb-3"><code id="cmd-deb">sudo apt install ./picosoft-exsel-0.5.0-linux-x86_64.deb</code>
+              <button class="btn-copy" data-copy="cmd-deb" type="button">Copiar</button></div>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="size">23,1 MB</span>
+              <a class="btn btn-primary btn-sm rounded-pill px-3"
+                 href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.deb">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card pkg h-100 reveal">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start">
+              <h3 class="h5 mb-1">.rpm</h3><span class="badge pkg-badge">RPM</span>
+            </div>
+            <p class="text-secondary small mb-3">Fedora · RHEL · openSUSE · Mageia</p>
+            <div class="cmd mb-3"><code id="cmd-rpm">sudo rpm -i picosoft-exsel-0.5.0-linux-x86_64.rpm</code>
+              <button class="btn-copy" data-copy="cmd-rpm" type="button">Copiar</button></div>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="size">24,1 MB</span>
+              <a class="btn btn-primary btn-sm rounded-pill px-3"
+                 href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.rpm">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card pkg h-100 reveal">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start">
+              <h3 class="h5 mb-1">.AppImage</h3><span class="badge pkg-badge">Portable</span>
+            </div>
+            <p class="text-secondary small mb-3">Cualquier distro · sin instalación</p>
+            <div class="cmd mb-3"><code id="cmd-ai">chmod +x picosoft-exsel-0.5.0-linux-x86_64.AppImage</code>
+              <button class="btn-copy" data-copy="cmd-ai" type="button">Copiar</button></div>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="size">20,7 MB</span>
+              <a class="btn btn-primary btn-sm rounded-pill px-3"
+                 href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.AppImage">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card pkg h-100 reveal">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start">
+              <h3 class="h5 mb-1">.flatpak</h3><span class="badge pkg-badge">Sandbox</span>
+            </div>
+            <p class="text-secondary small mb-3">Flatpak · aislamiento por sandbox</p>
+            <div class="cmd mb-3"><code id="cmd-fp">flatpak install --user ./picosoft-exsel-0.5.0-linux-x86_64.flatpak</code>
+              <button class="btn-copy" data-copy="cmd-fp" type="button">Copiar</button></div>
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="size">15,4 MB</span>
+              <a class="btn btn-primary btn-sm rounded-pill px-3"
+                 href="https://github.com/agdala10/PicoSoft-Exsel/releases/download/v0.5.0/picosoft-exsel-0.5.0-linux-x86_64.flatpak">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="req mt-4 mb-0 reveal">Requisitos: glibc ≥ 2.35 (Ubuntu 22.04 o superior) · ID de aplicación
+      <code class="inline">ai.picosoft.exsel</code> · todos los archivos con SHA-256 publicado en el release.</p>
+  </div>
+</section>
+
+<!-- ================= GALERÍA ================= -->
+<section class="section alt" id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Galería</span>
+      <h2>Siete capturas reales</h2>
+      <p>Del 0.5.0, en español, tema claro y oscuro. Pulsa una imagen para verla a tamaño completo.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/01-libro-vacio.png" data-caption="Libro nuevo · tema claro">
+            <img src="screenshots/01-libro-vacio.png" alt="Libro vacío en tema claro con la cinta en español" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>Libro nuevo · tema claro</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/02-libro-vacio-oscuro.png" data-caption="Libro nuevo · tema oscuro">
+            <img src="screenshots/02-libro-vacio-oscuro.png" alt="Libro vacío en tema oscuro con la cinta en español" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>Libro nuevo · tema oscuro</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/03-panel-ventas.png" data-caption="Panel de ventas con gráficos">
+            <img src="screenshots/03-panel-ventas.png" alt="Panel de ventas trimestral con tabla, gráfico de barras y gráfico circular" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>Panel de ventas con gráficos</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/04-panel-ventas-oscuro.png" data-caption="El mismo panel, tema oscuro">
+            <img src="screenshots/04-panel-ventas-oscuro.png" alt="Panel de ventas trimestral en tema oscuro" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>El mismo panel, tema oscuro</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/05-cinta-insertar.png" data-caption="Cinta «Insertar»">
+            <img src="screenshots/05-cinta-insertar.png" alt="Pestaña Insertar de la cinta con tablas dinámicas, gráficos e imágenes" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>Cinta «Insertar»</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/06-cinta-formulas.png" data-caption="Cinta «Fórmulas»">
+            <img src="screenshots/06-cinta-formulas.png" alt="Pestaña Fórmulas de la cinta con categorías de funciones y evaluador" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>Cinta «Fórmulas»</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4">
+        <figure class="gitem reveal">
+          <button type="button" class="gshot p-0 border-0" data-bs-toggle="modal" data-bs-target="#lightbox"
+                  data-full="screenshots/07-diseno-tabla.png" data-caption="Pestaña contextual «Diseño de tabla»">
+            <img src="screenshots/07-diseno-tabla.png" alt="Celda de una tabla seleccionada con la pestaña contextual Diseño de tabla" width="2000" height="1250" loading="lazy">
+            <span class="gzoom" aria-hidden="true"></span>
+          </button>
+          <figcaption>Pestaña contextual «Diseño de tabla»</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6 col-xl-4 d-none d-xl-block">
+        <div class="gmore reveal">
+          <p class="mb-3">¿Quieres verla funcionando?<br>El release trae un libro de ejemplo incluido.</p>
+          <a class="btn btn-outline-light rounded-pill px-4" href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">Ir al release</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="instalar" class="section">
-  <div class="wrap narrow">
-    <h2>Instalación y verificación</h2>
-    <p class="sub">Comprueba el checksum antes de instalar: cada archivo tiene su hash en el release.</p>
-    <pre class="code"># 1. descargas el paquete desde la página de Releases y lo verificas
+<!-- ================= CARACTERÍSTICAS ================= -->
+<section class="section" id="caracteristicas">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Características</span>
+      <h2>Hoja de cálculo seria, sin pedirte permiso</h2>
+      <p>Todo lo habitual, más control total para personas y agentes.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="feat reveal">
+          <div class="ficon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M17 16l3 3-3 3"/></svg></div>
+          <h3 class="h5">513 funciones</h3>
+          <p>Matemáticas, texto, fecha, lógicas, financieras y de búsqueda. 504 funcionan ya igual que en la hoja de referencia.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feat reveal">
+          <div class="ficon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+          <h3 class="h5">Gráficos de verdad</h3>
+          <p>Barras, líneas, dispersión, circular, combinados y paneles de control, con series, ejes y leyenda editables.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feat reveal">
+          <div class="ficon"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/></svg></div>
+          <h3 class="h5">XLSX nativo</h3>
+          <p>El formato abierto es su formato: abre lo que te mandan y guárdalo sin perder fórmulas, estilos ni gráficos. También .ods y .csv.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feat reveal">
+          <div class="ficon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg></div>
+          <h3 class="h5">Todo es un comando</h3>
+          <p>274 comandos con atajo: desde la cinta, la terminal (<code class="inline">picosoft-exsel-cli</code>), el canal de control o MCP.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feat reveal">
+          <div class="ficon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
+          <h3 class="h5">12 idiomas</h3>
+          <p>Interfaz, funciones y formatos numéricos localizados: español, inglés, chino, japonés, coreano, ruso, portugués, checo…</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="feat reveal">
+          <div class="ficon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3 class="h5">Rápida y discreta</h3>
+          <p>Sin proceso de fondo, sin cuenta y sin telemetría. Arranca en caliente y se queda exactamente donde la dejaste.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTALAR ================= -->
+<section class="section alt" id="instalar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Instalación</span>
+      <h2>Tres pasos y verificación</h2>
+      <p>Descarga, comprueba el hash y ejecuta. Elige tu distribución en las pestañas.</p>
+    </div>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7">
+        <div class="card shell reveal">
+          <div class="card-body p-0">
+            <ul class="nav nav-tabs shell-tabs" role="tablist">
+              <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-deb" type="button">Debian / Ubuntu</button></li>
+              <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-rpm" type="button">Fedora / openSUSE</button></li>
+              <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ai" type="button">AppImage</button></li>
+              <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-fp" type="button">Flatpak</button></li>
+            </ul>
+
+            <div class="tab-content p-3 p-md-4">
+              <div class="tab-pane fade show active" id="tab-deb" role="tabpanel">
+                <div class="cmd dark"><code id="v-deb"># comprueba el hash
 sha256sum picosoft-exsel-0.5.0-linux-x86_64.deb
-# 3f10fe0f47b249fa56a9d29d83be0d48239b92cb091c233a51de700d98358445  picosoft-exsel-0.5.0-linux-x86_64.deb
+# instala
+sudo apt install ./picosoft-exsel-0.5.0-linux-x86_64.deb
+# lanza con un libro de ejemplo
+picosoft-exsel --sample sales</code><button class="btn-copy" data-copy="v-deb" type="button">Copiar</button></div>
+              </div>
+              <div class="tab-pane fade" id="tab-rpm" role="tabpanel">
+                <div class="cmd dark"><code id="v-rpm">sha256sum picosoft-exsel-0.5.0-linux-x86_64.rpm
+sudo rpm -i picosoft-exsel-0.5.0-linux-x86_64.rpm
+picosoft-exsel --sample sales</code><button class="btn-copy" data-copy="v-rpm" type="button">Copiar</button></div>
+              </div>
+              <div class="tab-pane fade" id="tab-ai" role="tabpanel">
+                <div class="cmd dark"><code id="v-ai">chmod +x picosoft-exsel-0.5.0-linux-x86_64.AppImage
+./picosoft-exsel-0.5.0-linux-x86_64.AppImage --sample sales</code><button class="btn-copy" data-copy="v-ai" type="button">Copiar</button></div>
+              </div>
+              <div class="tab-pane fade" id="tab-fp" role="tabpanel">
+                <div class="cmd dark"><code id="v-fp">flatpak install --user ./picosoft-exsel-0.5.0-linux-x86_64.flatpak
+flatpak run ai.picosoft.exsel --sample sales</code><button class="btn-copy" data-copy="v-fp" type="button">Copiar</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-# 2. lo instalas
-sudo apt install ./picosoft-exsel-0.5.0-linux-x86_64.deb     # Debian/Ubuntu
-sudo rpm -i picosoft-exsel-0.5.0-linux-x86_64.rpm            # Fedora/openSUSE
-./picosoft-exsel-0.5.0-linux-x86_64.AppImage                 # cualquier distro
-flatpak install --user ./picosoft-exsel-0.5.0-linux-x86_64.flatpak
-
-# 3. lanzas
-picosoft-exsel --sample sales</pre>
-    <table class="sums">
-      <caption>SHA-256 de los instaladores de la versión 0.5.0</caption>
-      <tr><th>Archivo</th><th>Hash</th></tr>
-      <tr><td>…linux-x86_64.deb</td><td><code>3f10fe0f47b249fa56a9d29d83be0d48239b92cb091c233a51de700d98358445</code></td></tr>
-      <tr><td>…linux-x86_64.rpm</td><td><code>b1193ebaac743f892bef6812e840e1fd52bcef5a19d8c8a3e909fa1263dbbc94</code></td></tr>
-      <tr><td>…linux-x86_64.AppImage</td><td><code>12872ec3c926bc66d343f1d146d254d9c4b66bf38d441190fe23a2d957c3d6ee</code></td></tr>
-      <tr><td>…linux-x86_64.flatpak</td><td><code>167c543e74ee30ee17a4da0e9250918ac566f51f53a019cb58ccdfd2167eef75</code></td></tr>
-    </table>
+      <div class="col-lg-5">
+        <div class="card sums-card reveal">
+          <div class="card-body">
+            <h3 class="h5 mb-3">SHA-256 · v0.5.0</h3>
+            <ul class="list-unstyled mb-0 sums">
+              <li><span>.deb</span><code>3f10fe0f47b249fa56a9d29d83be0d48239b92cb091c233a51de700d98358445</code></li>
+              <li><span>.rpm</span><code>b1193ebaac743f892bef6812e840e1fd52bcef5a19d8c8a3e909fa1263dbbc94</code></li>
+              <li><span>.AppImage</span><code>12872ec3c926bc66d343f1d146d254d9c4b66bf38d441190fe23a2d957c3d6ee</code></li>
+              <li><span>.flatpak</span><code>167c543e74ee30ee17a4da0e9250918ac566f51f53a019cb58ccdfd2167eef75</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer class="foot">
-  <div class="wrap foot-grid">
-    <div>
-      <p class="brand2">PicoSoft-<b>Exsel</b> 2026</p>
-      <p>Software libre bajo licencia MIT OR Apache-2.0. Los iconos, temas y libros de ejemplo de
-        este sitio son obra original de los colaboradores del proyecto.</p>
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="container container-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Antes de instalar</h2>
     </div>
-    <div>
-      <p class="h">Proyecto</p>
-      <a href="https://github.com/agdala10/PicoSoft-Exsel">Repositorio</a>
-      <a href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">Release v0.5.0</a>
-      <a href="https://github.com/agdala10/PicoSoft-Exsel/issues">Incidencias</a>
-    </div>
-    <div>
-      <p class="h">Más</p>
-      <a href="https://github.com/agdala10">agdala10</a>
-      <a href="https://github.com/storytold/gridcraft">Proyecto original (upstream)</a>
-      <a href="https://github.com/agdala10/PicoSoft-Exsel#readme">Léeme</a>
+
+    <div class="accordion reveal" id="faqAcc">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">¿Qué necesito para instalarlo?</button>
+        </h3>
+        <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+          <div class="accordion-body">Linux x86_64 con glibc 2.35 o superior (Ubuntu 22.04, Debian 12, Fedora 36 o más reciente).
+            Las 64 bits son la única arquitectura publicada en esta versión.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">¿Cómo sé que el archivo no está manipulado?</button>
+        </h3>
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+          <div class="accordion-body">Cada instalador tiene su SHA-256 publicado en esta página y en el release de GitHub.
+            Ejecuta <code class="inline">sha256sum &lt;archivo&gt;</code> y compáralo con el hash listado: deben coincidir letra por letra.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">¿Qué formatos de archivo abre?</button>
+        </h3>
+        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+          <div class="accordion-body">XLSX (su formato nativo), XLSM, XLSB, ODS, CSV y TXT. Guarda en XLSX sin convertir,
+            conservando fórmulas, estilos, gráficos y formato condicional.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">¿Tiene precio o cuenta?</button>
+        </h3>
+        <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+          <div class="accordion-body">No. Es software libre (MIT OR Apache-2.0), sin cuenta, sin suscripción y sin telemetría.
+            Descargas, instalas y trabajas.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">¿Y Windows o macOS?</button>
+        </h3>
+        <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+          <div class="accordion-body">El proyecto se compila para Windows, macOS, Linux y BSD (y para la web vía WASM).
+            Esta publicación concreta trae los paquetes de Linux; el instalador de Windows se publicará en el siguiente release.</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="wrap lic">PicoSoft-Exsel © los colaboradores del proyecto.</div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-band">
+  <div class="container text-center">
+    <h2 class="reveal">Descárgalo y ábrelo en 30 segundos</h2>
+    <p class="reveal mb-4">Un archivo. Sin registro. Sin marca de agua.</p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center reveal">
+      <a class="btn btn-light btn-lg rounded-pill px-4 fw-semibold"
+         href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">Ir a los instaladores</a>
+      <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="https://github.com/agdala10/PicoSoft-Exsel">Ver el código</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <img src="favicon.svg" alt="" width="28" height="28" class="rounded-2">
+          <span class="brand-name text-white">PicoSoft-<b>Exsel</b></span>
+        </div>
+        <p class="small">Hoja de cálculo nativa escrita en Rust. Software libre bajo licencia MIT OR Apache-2.0.
+          Iconos, temas y libros de ejemplo son obra original del proyecto.</p>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <p class="foot-h">Proyecto</p>
+        <a href="https://github.com/agdala10/PicoSoft-Exsel">Repositorio</a>
+        <a href="https://github.com/agdala10/PicoSoft-Exsel/releases/tag/v0.5.0">Release v0.5.0</a>
+        <a href="https://github.com/agdala10/PicoSoft-Exsel/issues">Incidencias</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="foot-h">Esta web</p>
+        <a href="#descargar">Descargar</a>
+        <a href="#galeria">Galería</a>
+        <a href="#instalar">Instalar</a>
+      </div>
+      <div class="col-lg-3">
+        <p class="foot-h">Más</p>
+        <a href="https://github.com/agdala10">agdala10</a>
+        <a href="https://github.com/storytold/gridcraft">Proyecto original (upstream)</a>
+        <a href="https://getbootstrap.com">Interfaz con Bootstrap (MIT)</a>
+      </div>
+    </div>
+    <div class="foot-bottom small">
+      © <span id="year">2026</span> PicoSoft-Exsel · los colaboradores del proyecto.
+    </div>
+  </div>
 </footer>
 
+<!-- ================= LIGHTBOX ================= -->
+<div class="modal fade" id="lightbox" tabindex="-1" aria-labelledby="lightboxLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-header border-0 pb-0">
+        <p class="modal-title small text-white-50 mb-0" id="lightboxLabel">Captura de PicoSoft-Exsel</p>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body p-0">
+        <img id="lightboxImg" src="screenshots/01-libro-vacio.png" alt="" class="img-fluid rounded-3 shadow">
+      </div>
+      <div class="modal-footer border-0 text-white-50 small" id="lightboxCap"></div>
+    </div>
+  </div>
+</div>
+
+<button class="totop" id="totop" type="button" aria-label="Volver arriba">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<script src="js/site.js"></script>
 </body>
 </html>
